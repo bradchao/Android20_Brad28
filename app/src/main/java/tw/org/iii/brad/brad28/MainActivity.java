@@ -89,8 +89,15 @@ public class MainActivity extends AppCompatActivity {
         showMyToast("Hello, World", false);
     }
 
+    Snackbar snackbar;
     public void test4(View view) {
-        Snackbar.make(rootView, "Hello, World",
-                Snackbar.LENGTH_LONG).show();
+        snackbar = Snackbar.make(rootView, "Hello, World",
+                Snackbar.LENGTH_INDEFINITE);
+        snackbar.show();
     }
+
+    public void test5(View view) {
+        snackbar.dismiss();
+    }
+
 }
