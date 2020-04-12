@@ -6,10 +6,14 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -56,8 +60,28 @@ public class MainActivity extends AppCompatActivity {
         }, 12, 30, true);
 
         dialog.show();
+    }
 
+    private void showMyToast(String mesg, boolean isWarn){
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.toast, null);
+
+        TextView toast_mesg = view.findViewById(R.id.toast_mesg);
+        ImageView img = view.findViewById(R.id.toast_img);
+
+        toast_mesg.setText(mesg);
+//        img.setImageResource(isWarn?R.drawable.warning:R.drawable.info);
+
+        Toast toast = new Toast(this);
+        toast.setGravity(Gravity.NO_GRAVITY, 0, 200);
+        toast.setView(view);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.show();
 
     }
 
+
+    public void test3(View view) {
+        showMyToast("Hello, World", false);
+    }
 }
