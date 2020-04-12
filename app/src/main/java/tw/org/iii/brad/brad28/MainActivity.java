@@ -15,16 +15,20 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     private TextView birthday;
+    private View rootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        rootView = findViewById(R.id.rootView);
         birthday = findViewById(R.id.birthday);
     }
 
@@ -83,5 +87,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void test3(View view) {
         showMyToast("Hello, World", false);
+    }
+
+    public void test4(View view) {
+        Snackbar.make(rootView, "Hello, World",
+                Snackbar.LENGTH_LONG).show();
     }
 }
